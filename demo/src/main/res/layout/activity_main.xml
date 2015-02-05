@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical" android:padding="20dp">
+
+    <LinearLayout style="@style/MatchWrap.Horizontal">
+
+        <cn.bingoogolapple.controltoggleview.ControlToggleView
+            android:id="@+id/ctv_main_left"
+            style="@style/AutoWrap"
+            android:text="Left"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            app:ctv_uncheckedBackground="@drawable/selector_left_unchecked"
+            app:ctv_checkedBackground="@drawable/selector_left_checked"
+            app:ctv_uncheckedTextColor="@color/selector_unchecked"
+            app:ctv_checkedTextColor="@color/selector_checked"
+            app:ctv_checked="true"
+            android:gravity="center"
+            android:textSize="15sp" />
+        <cn.bingoogolapple.controltoggleview.ControlToggleView
+            android:id="@+id/ctv_main_center"
+            style="@style/AutoWrap"
+            android:text="Center"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            app:ctv_uncheckedTextColor="@color/selector_unchecked"
+            app:ctv_checkedTextColor="@color/selector_checked"
+            android:gravity="center"
+            android:textSize="15sp" />
+        <cn.bingoogolapple.controltoggleview.ControlToggleView
+            android:id="@+id/ctv_main_right"
+            style="@style/AutoWrap"
+            android:text="Right"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            app:ctv_uncheckedBackground="@drawable/selector_right_unchecked"
+            app:ctv_checkedBackground="@drawable/selector_right_checked"
+            android:gravity="center"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <cn.bingoogolapple.controltoggleview.ControlToggleView
+        android:id="@+id/ctv_main_apple"
+        android:layout_marginTop="20dp"
+        style="@style/WrapWrap"
+        app:ctv_uncheckedBackground="@drawable/apple_toggle_off"
+        app:ctv_checkedBackground="@drawable/apple_toggle_on"
+        android:gravity="center"
+        android:textSize="15sp" />
+</LinearLayout>

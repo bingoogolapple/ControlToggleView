@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ControlToggleView">
+        <attr name="ctv_checkedBackground" format="color|reference" />
+        <attr name="ctv_uncheckedBackground" format="color|reference" />
+        <attr name="ctv_checkedTextColor" format="color|reference" />
+        <attr name="ctv_uncheckedTextColor" format="color|reference" />
+        <attr name="ctv_checked" format="boolean" />
+    </declare-styleable>
+</resources>
