@@ -6,7 +6,7 @@
 
 ```groovy
 dependencies {
-    compile 'cn.bingoogolapple:controltoggleview:1.0.0'
+    compile 'cn.bingoogolapple:controltoggleview:1.0.0@aar'
 }
 ```
 
