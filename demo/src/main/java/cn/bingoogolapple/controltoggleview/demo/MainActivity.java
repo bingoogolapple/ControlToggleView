@@ -3,26 +3,26 @@ package cn.bingoogolapple.controltoggleview.demo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
+import cn.bingoogolapple.bgaannotation.BGAA;
+import cn.bingoogolapple.bgaannotation.BGAALayout;
+import cn.bingoogolapple.bgaannotation.BGAAView;
 import cn.bingoogolapple.controltoggleview.ControlToggleView;
-import cn.bingoogolapple.loonannotation.Loon;
-import cn.bingoogolapple.loonannotation.LoonLayout;
-import cn.bingoogolapple.loonannotation.LoonView;
 
-@LoonLayout(R.layout.activity_main)
+@BGAALayout(R.layout.activity_main)
 public class MainActivity extends ActionBarActivity implements ControlToggleView.BeforeControlToggleViewChangeListener {
-    @LoonView(R.id.ctv_main_left)
+    @BGAAView(R.id.ctv_main_left)
     private ControlToggleView mLeftCtv;
-    @LoonView(R.id.ctv_main_center)
+    @BGAAView(R.id.ctv_main_center)
     private ControlToggleView mCenterCtv;
-    @LoonView(R.id.ctv_main_right)
+    @BGAAView(R.id.ctv_main_right)
     private ControlToggleView mRightCtv;
-    @LoonView(R.id.ctv_main_apple)
+    @BGAAView(R.id.ctv_main_apple)
     private ControlToggleView mAppleCtv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Loon.injectView2Activity(this);
+        BGAA.injectView2Activity(this);
 
         mCenterCtv.setBackgroundResIds(R.drawable.selector_center_checked, R.drawable.selector_center_unchecked);
         mRightCtv.setTextColorResIds(R.color.selector_checked, R.color.selector_unchecked);
