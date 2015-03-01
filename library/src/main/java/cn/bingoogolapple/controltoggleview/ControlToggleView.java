@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class ControlToggleView extends TextView {
     private static final String INSTANCE_STATUS = "instance_status";
     private static final String STATUS_CHECKED = "status_checked";
+
     private int mCheckedBackgroundResId;
     private int mUnCheckedBackgroundResId;
     private ColorStateList mCheckedColorStateList;
@@ -25,6 +26,7 @@ public class ControlToggleView extends TextView {
     public ControlToggleView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initAttrs(context, attrs);
+        setClickable(true);
         setChecked(mChecked);
     }
 
@@ -111,7 +113,6 @@ public class ControlToggleView extends TextView {
         return bundle;
     }
 
-
     @Override
     public void onRestoreInstanceState(Parcelable state) {
         if (state instanceof Bundle) {
@@ -122,7 +123,6 @@ public class ControlToggleView extends TextView {
             super.onRestoreInstanceState(state);
         }
     }
-
 
     public static interface BeforeControlToggleViewChangeListener {
         public void controlToggleViewBeforeChecked(ControlToggleView controlToggleView);

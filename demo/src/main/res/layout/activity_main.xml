@@ -1,71 +1,180 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/MatchMatch.Vertical"
+    android:gravity="center_horizontal"
     android:padding="20dp">
 
-    <LinearLayout style="@style/MatchWrap.Horizontal">
+    <TextView
+        style="@style/MatchWrap"
+        android:text="ControlToggleView"
+        android:gravity="center"
+        android:padding="5dp"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/selector_unchecked"
+        android:textSize="16sp" />
 
+    <cn.bingoogolapple.controltoggleview.ControlToggleView
+        android:id="@+id/ctv_main_apple"
+        style="@style/WrapWrap"
+        app:ctv_uncheckedBackground="@drawable/apple_toggle_off"
+        app:ctv_checkedBackground="@drawable/apple_toggle_on" />
+
+    <cn.bingoogolapple.controltoggleview.ControlToggleView
+        android:id="@+id/ctv_main_textColor"
+        style="@style/WrapWrap"
+        android:padding="5dp"
+        android:text="Java代码设置文字颜色"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:ctv_uncheckedBackground="@drawable/selector_center_unchecked"
+        app:ctv_checkedBackground="@drawable/selector_center_checked" />
+
+    <cn.bingoogolapple.controltoggleview.ControlToggleView
+        android:id="@+id/ctv_main_background"
+        style="@style/WrapWrap"
+        android:padding="5dp"
+        android:text="Java代码设置背景"
+        app:ctv_uncheckedTextColor="@color/selector_unchecked"
+        app:ctv_checkedTextColor="@color/selector_checked" />
+
+    <TextView
+        style="@style/MatchWrap"
+        android:text="ControlToggleViewGroup"
+        android:gravity="center"
+        android:padding="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/selector_unchecked"
+        android:textSize="16sp" />
+
+    <cn.bingoogolapple.controltoggleview.ControlToggleViewGroup
+        android:orientation="vertical"
+        android:id="@+id/ctvg_main_vertical"
+        app:ctvg_checkedId="@+id/ctv_main_a"
+        style="@style/MatchWrap">
+
+        <LinearLayout
+            style="@style/MatchWrap.Horizontal"
+            android:padding="5dp"
+            android:background="#cccc">
+
+            <TextView
+                android:text="A Description"
+                style="@style/AutoWrap" />
+
+            <cn.bingoogolapple.controltoggleview.ControlToggleView
+                android:id="@+id/ctv_main_a"
+                style="@style/WrapWrap"
+                android:text="A"
+                android:layout_marginLeft="20dp"
+                android:padding="10dp"
+                app:ctv_uncheckedBackground="@drawable/selector_center_unchecked"
+                app:ctv_checkedBackground="@drawable/selector_center_checked"
+                app:ctv_uncheckedTextColor="@color/selector_unchecked"
+                app:ctv_checkedTextColor="@color/selector_checked"
+                android:gravity="center"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/MatchWrap.Horizontal"
+            android:layout_marginTop="1dp"
+            android:padding="5dp"
+            android:background="#cccc">
+
+            <TextView
+                android:text="B Description"
+                style="@style/AutoWrap" />
+
+            <cn.bingoogolapple.controltoggleview.ControlToggleView
+                android:id="@+id/ctv_main_b"
+                style="@style/WrapWrap"
+                android:text="B"
+                android:layout_marginLeft="20dp"
+                android:padding="10dp"
+                app:ctv_uncheckedBackground="@drawable/selector_center_unchecked"
+                app:ctv_checkedBackground="@drawable/selector_center_checked"
+                app:ctv_uncheckedTextColor="@color/selector_unchecked"
+                app:ctv_checkedTextColor="@color/selector_checked"
+                android:gravity="center"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/MatchWrap.Horizontal"
+            android:layout_marginTop="1dp"
+            android:padding="5dp"
+            android:background="#cccc">
+
+            <TextView
+                android:text="C Description"
+                style="@style/AutoWrap" />
+
+            <cn.bingoogolapple.controltoggleview.ControlToggleView
+                android:id="@+id/ctv_main_c"
+                style="@style/WrapWrap"
+                android:text="C"
+                android:layout_marginLeft="20dp"
+                android:padding="10dp"
+                app:ctv_uncheckedBackground="@drawable/selector_center_unchecked"
+                app:ctv_checkedBackground="@drawable/selector_center_checked"
+                app:ctv_uncheckedTextColor="@color/selector_unchecked"
+                app:ctv_checkedTextColor="@color/selector_checked"
+                android:gravity="center"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </cn.bingoogolapple.controltoggleview.ControlToggleViewGroup>
+
+
+    <cn.bingoogolapple.controltoggleview.ControlToggleViewGroup
+        android:orientation="horizontal"
+        android:id="@+id/ctvg_main_horizontal"
+        android:layout_marginTop="30dp"
+        app:ctvg_checkedId="@+id/ctv_main_d"
+        style="@style/MatchWrap">
         <cn.bingoogolapple.controltoggleview.ControlToggleView
-            android:id="@+id/ctv_main_left"
+            android:id="@+id/ctv_main_d"
             style="@style/AutoWrap"
-            android:text="Left"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
+            android:text="D"
+            android:padding="10dp"
             app:ctv_uncheckedBackground="@drawable/selector_left_unchecked"
             app:ctv_checkedBackground="@drawable/selector_left_checked"
             app:ctv_uncheckedTextColor="@color/selector_unchecked"
             app:ctv_checkedTextColor="@color/selector_checked"
-            app:ctv_checked="true"
             android:gravity="center"
             android:textSize="15sp" />
-
         <cn.bingoogolapple.controltoggleview.ControlToggleView
-            android:id="@+id/ctv_main_center"
+            android:id="@+id/ctv_main_e"
             style="@style/AutoWrap"
-            android:text="Center"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
+            android:text="E"
+            android:padding="10dp"
+            app:ctv_uncheckedBackground="@drawable/selector_center_unchecked"
+            app:ctv_checkedBackground="@drawable/selector_center_checked"
             app:ctv_uncheckedTextColor="@color/selector_unchecked"
             app:ctv_checkedTextColor="@color/selector_checked"
             android:gravity="center"
             android:textSize="15sp" />
-
         <cn.bingoogolapple.controltoggleview.ControlToggleView
-            android:id="@+id/ctv_main_right"
+            android:id="@+id/ctv_main_f"
             style="@style/AutoWrap"
-            android:text="Right"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            app:ctv_uncheckedBackground="@drawable/selector_right_unchecked"
-            app:ctv_checkedBackground="@drawable/selector_right_checked"
+            android:text="F"
+            android:padding="10dp"
+            app:ctv_uncheckedBackground="@drawable/selector_center_unchecked"
+            app:ctv_checkedBackground="@drawable/selector_center_checked"
+            app:ctv_uncheckedTextColor="@color/selector_unchecked"
+            app:ctv_checkedTextColor="@color/selector_checked"
             android:gravity="center"
             android:textSize="15sp" />
-    </LinearLayout>
-
-    <cn.bingoogolapple.controltoggleview.ControlToggleView
-        android:id="@+id/ctv_main_apple"
-        android:layout_marginTop="20dp"
-        style="@style/WrapWrap"
-        app:ctv_uncheckedBackground="@drawable/apple_toggle_off"
-        app:ctv_checkedBackground="@drawable/apple_toggle_on"
-        android:gravity="center"
-        android:textSize="15sp" />
-
-    <RadioGroup
-        style="@style/MatchWrap"
-        android:orientation="horizontal">
-        <RadioButton
-            android:text="one"
-            style="@style/WrapWrap" />
-
-        <RadioButton
-            android:text="two"
-            style="@style/WrapWrap" />
-
-        <RadioButton
-            android:text="three"
-            style="@style/WrapWrap" />
-    </RadioGroup>
-
-
+        <cn.bingoogolapple.controltoggleview.ControlToggleView
+            android:id="@+id/ctv_main_g"
+            style="@style/AutoWrap"
+            android:text="G"
+            android:padding="10dp"
+            app:ctv_uncheckedBackground="@drawable/selector_right_unchecked"
+            app:ctv_checkedBackground="@drawable/selector_right_checked"
+            app:ctv_uncheckedTextColor="@color/selector_unchecked"
+            app:ctv_checkedTextColor="@color/selector_checked"
+            android:gravity="center"
+            android:textSize="15sp" />
+    </cn.bingoogolapple.controltoggleview.ControlToggleViewGroup>
 </LinearLayout>
