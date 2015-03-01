@@ -6,10 +6,9 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.TextView;
 
-public class ControlToggleView extends TextView implements View.OnClickListener {
+public class ControlToggleView extends TextView {
     private static final String INSTANCE_STATUS = "instance_status";
     private static final String STATUS_CHECKED = "status_checked";
     private int mCheckedBackgroundResId;
@@ -26,28 +25,30 @@ public class ControlToggleView extends TextView implements View.OnClickListener 
     public ControlToggleView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initAttrs(context, attrs);
-        setOnClickListener(this);
+        setChecked(mChecked);
     }
 
     private void initAttrs(Context context, AttributeSet attrs) {
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ControlToggleView);
-        final int count = typedArray.getIndexCount();
-        for (int i = 0; i < count; i++) {
-            int attr = typedArray.getIndex(i);
-            if (attr == R.styleable.ControlToggleView_ctv_checkedBackground) {
-                mCheckedBackgroundResId = typedArray.getResourceId(attr, android.R.color.white);
-            } else if (attr == R.styleable.ControlToggleView_ctv_uncheckedBackground) {
-                mUnCheckedBackgroundResId = typedArray.getResourceId(attr, android.R.color.white);
-            } else if (attr == R.styleable.ControlToggleView_ctv_checked) {
-                mChecked = typedArray.getBoolean(attr, false);
-            } else if (attr == R.styleable.ControlToggleView_ctv_checkedTextColor) {
-                mCheckedColorStateList = typedArray.getColorStateList(attr);
-            } else if (attr == R.styleable.ControlToggleView_ctv_uncheckedTextColor) {
-                mUnCheckedColorStateList = typedArray.getColorStateList(attr);
-            }
+        final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ControlToggleView);
+        final int N = typedArray.getIndexCount();
+        for (int i = 0; i < N; i++) {
+            initAttr(typedArray.getIndex(i), typedArray);
         }
-        setChecked(mChecked);
         typedArray.recycle();
+    }
+
+    public void initAttr(int attr, TypedArray typedArray) {
+        if (attr == R.styleable.ControlToggleView_ctv_checkedBackground) {
+            mCheckedBackgroundResId = typedArray.getResourceId(attr, android.R.color.white);
+        } else if (attr == R.styleable.ControlToggleView_ctv_uncheckedBackground) {
+            mUnCheckedBackgroundResId = typedArray.getResourceId(attr, android.R.color.white);
+        } else if (attr == R.styleable.ControlToggleView_ctv_checked) {
+            mChecked = typedArray.getBoolean(attr, false);
+        } else if (attr == R.styleable.ControlToggleView_ctv_checkedTextColor) {
+            mCheckedColorStateList = typedArray.getColorStateList(attr);
+        } else if (attr == R.styleable.ControlToggleView_ctv_uncheckedTextColor) {
+            mUnCheckedColorStateList = typedArray.getColorStateList(attr);
+        }
     }
 
     public void setChecked(boolean checked) {
@@ -67,22 +68,22 @@ public class ControlToggleView extends TextView implements View.OnClickListener 
     }
 
     public void toggle() {
-        mChecked = !mChecked;
-        setChecked(mChecked);
+        setChecked(!mChecked);
     }
 
     @Override
-    public void onClick(View v) {
+    public boolean performClick() {
         if (mBeforeControlToggleViewChangeListener != null) {
             if (mChecked) {
-                mBeforeControlToggleViewChangeListener.beforeControlToggleViewUnChecked(this);
+                mBeforeControlToggleViewChangeListener.controlToggleViewBeforeUnChecked(this);
             } else {
-                mBeforeControlToggleViewChangeListener.beforeControlToggleViewChecked(this);
+                mBeforeControlToggleViewChangeListener.controlToggleViewBeforeChecked(this);
             }
         }
+        return super.performClick();
     }
 
-    public boolean getChecked() {
+    public boolean isChecked() {
         return mChecked;
     }
 
@@ -123,9 +124,9 @@ public class ControlToggleView extends TextView implements View.OnClickListener 
     }
 
 
-    public interface BeforeControlToggleViewChangeListener {
-        public void beforeControlToggleViewChecked(ControlToggleView controlToggleView);
+    public static interface BeforeControlToggleViewChangeListener {
+        public void controlToggleViewBeforeChecked(ControlToggleView controlToggleView);
 
-        public void beforeControlToggleViewUnChecked(ControlToggleView controlToggleView);
+        public void controlToggleViewBeforeUnChecked(ControlToggleView controlToggleView);
     }
 }

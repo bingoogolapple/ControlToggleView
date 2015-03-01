@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/MatchMatch.Vertical" android:padding="20dp">
+    style="@style/MatchMatch.Vertical"
+    android:padding="20dp">
 
     <LinearLayout style="@style/MatchWrap.Horizontal">
 
@@ -17,6 +18,7 @@
             app:ctv_checked="true"
             android:gravity="center"
             android:textSize="15sp" />
+
         <cn.bingoogolapple.controltoggleview.ControlToggleView
             android:id="@+id/ctv_main_center"
             style="@style/AutoWrap"
@@ -27,6 +29,7 @@
             app:ctv_checkedTextColor="@color/selector_checked"
             android:gravity="center"
             android:textSize="15sp" />
+
         <cn.bingoogolapple.controltoggleview.ControlToggleView
             android:id="@+id/ctv_main_right"
             style="@style/AutoWrap"
@@ -47,4 +50,22 @@
         app:ctv_checkedBackground="@drawable/apple_toggle_on"
         android:gravity="center"
         android:textSize="15sp" />
+
+    <RadioGroup
+        style="@style/MatchWrap"
+        android:orientation="horizontal">
+        <RadioButton
+            android:text="one"
+            style="@style/WrapWrap" />
+
+        <RadioButton
+            android:text="two"
+            style="@style/WrapWrap" />
+
+        <RadioButton
+            android:text="three"
+            style="@style/WrapWrap" />
+    </RadioGroup>
+
+
 </LinearLayout>
