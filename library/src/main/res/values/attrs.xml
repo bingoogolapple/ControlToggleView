@@ -7,4 +7,9 @@
         <attr name="ctv_uncheckedTextColor" format="color|reference" />
         <attr name="ctv_checked" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="ControlToggleViewGroup">
+        <attr name="ctvg_checkedId" format="reference"/>
+    </declare-styleable>
+
 </resources>
